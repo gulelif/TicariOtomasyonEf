@@ -14,6 +14,13 @@ namespace Ticari_Otomasyon
     
     public partial class TBL_URUNLER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_URUNLER()
+        {
+            this.TBL_FIRMAHAREKETLER = new HashSet<TBL_FIRMAHAREKETLER>();
+            this.TBL_MUSTERIHAREKETLER = new HashSet<TBL_MUSTERIHAREKETLER>();
+        }
+    
         public int ID { get; set; }
         public string UrunAd { get; set; }
         public string Marka { get; set; }
@@ -23,5 +30,10 @@ namespace Ticari_Otomasyon
         public Nullable<decimal> AlisFiyat { get; set; }
         public Nullable<decimal> SatisFiyat { get; set; }
         public string Detay { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_FIRMAHAREKETLER> TBL_FIRMAHAREKETLER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_MUSTERIHAREKETLER> TBL_MUSTERIHAREKETLER { get; set; }
     }
 }

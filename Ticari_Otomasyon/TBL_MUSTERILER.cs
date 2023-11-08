@@ -14,6 +14,12 @@ namespace Ticari_Otomasyon
     
     public partial class TBL_MUSTERILER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_MUSTERILER()
+        {
+            this.TBL_MUSTERIHAREKETLER = new HashSet<TBL_MUSTERIHAREKETLER>();
+        }
+    
         public short ID { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
@@ -25,5 +31,8 @@ namespace Ticari_Otomasyon
         public string Ilce { get; set; }
         public string Adres { get; set; }
         public string VergiDaire { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_MUSTERIHAREKETLER> TBL_MUSTERIHAREKETLER { get; set; }
     }
 }

@@ -47,6 +47,21 @@
           <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" />
           <Property Name="FaturaID" Type="int" />
         </EntityType>
+        <EntityType Name="TBL_FIRMAHAREKETLER">
+          <Key>
+            <PropertyRef Name="HareketID" />
+          </Key>
+          <Property Name="HareketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunID" Type="int" />
+          <Property Name="Adet" Type="tinyint" />
+          <Property Name="Personel" Type="tinyint" />
+          <Property Name="Firma" Type="smallint" />
+          <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Toplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FaturaID" Type="int" />
+          <Property Name="Tarih" Type="varchar" MaxLength="10" />
+          <Property Name="Notlar" Type="varchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="TBL_FIRMALAR">
           <Key>
             <PropertyRef Name="ID" />
@@ -108,6 +123,21 @@
           <Property Name="FirmaKod1" Type="varchar" MaxLength="300" />
           <Property Name="FirmaKod2" Type="varchar" MaxLength="300" />
           <Property Name="FirmaKod3" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TBL_MUSTERIHAREKETLER">
+          <Key>
+            <PropertyRef Name="HareketID" />
+          </Key>
+          <Property Name="HareketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunID" Type="int" />
+          <Property Name="Adet" Type="tinyint" />
+          <Property Name="Personel" Type="tinyint" />
+          <Property Name="Musteri" Type="smallint" />
+          <Property Name="Fiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Toplam" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FaturaID" Type="int" />
+          <Property Name="Tarih" Type="varchar" MaxLength="10" />
+          <Property Name="Notlar" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TBL_MUSTERILER">
           <Key>
@@ -200,16 +230,80 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER">
+          <End Role="TBL_PERSONELLER" Type="Self.TBL_PERSONELLER" Multiplicity="0..1" />
+          <End Role="TBL_FIRMAHAREKETLER" Type="Self.TBL_FIRMAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSONELLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_FIRMAHAREKETLER">
+              <PropertyRef Name="Personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_FIRMAHAREKETLER_TBL_URUNLER">
+          <End Role="TBL_URUNLER" Type="Self.TBL_URUNLER" Multiplicity="0..1" />
+          <End Role="TBL_FIRMAHAREKETLER" Type="Self.TBL_FIRMAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_URUNLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_FIRMAHAREKETLER">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER">
+          <End Role="TBL_MUSTERILER" Type="Self.TBL_MUSTERILER" Multiplicity="0..1" />
+          <End Role="TBL_MUSTERIHAREKETLER" Type="Self.TBL_MUSTERIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_MUSTERILER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_MUSTERIHAREKETLER">
+              <PropertyRef Name="Musteri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER">
+          <End Role="TBL_PERSONELLER" Type="Self.TBL_PERSONELLER" Multiplicity="0..1" />
+          <End Role="TBL_MUSTERIHAREKETLER" Type="Self.TBL_MUSTERIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSONELLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_MUSTERIHAREKETLER">
+              <PropertyRef Name="Personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER">
+          <End Role="TBL_URUNLER" Type="Self.TBL_URUNLER" Multiplicity="0..1" />
+          <End Role="TBL_MUSTERIHAREKETLER" Type="Self.TBL_MUSTERIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_URUNLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_MUSTERIHAREKETLER">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="BankaBilgileri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FirmaHareketler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="MusteriHareketler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DboTicariOtomasyonModelStoreContainer">
           <EntitySet Name="TBL_BANKALAR" EntityType="Self.TBL_BANKALAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_FATURABILGI" EntityType="Self.TBL_FATURABILGI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_FATURADETAY" EntityType="Self.TBL_FATURADETAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_FIRMAHAREKETLER" EntityType="Self.TBL_FIRMAHAREKETLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_FIRMALAR" EntityType="Self.TBL_FIRMALAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_GIDERLER" EntityType="Self.TBL_GIDERLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ILCELER" EntityType="Self.TBL_ILCELER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ILLER" EntityType="Self.TBL_ILLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_KODLAR" EntityType="Self.TBL_KODLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_MUSTERIHAREKETLER" EntityType="Self.TBL_MUSTERIHAREKETLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_MUSTERILER" EntityType="Self.TBL_MUSTERILER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_NOTLAR" EntityType="Self.TBL_NOTLAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_PERSONELLER" EntityType="Self.TBL_PERSONELLER" Schema="dbo" store:Type="Tables" />
@@ -228,6 +322,26 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <AssociationSet Name="FK_TBL_FATURADETAY_TBL_FATURABILGI" Association="Self.FK_TBL_FATURADETAY_TBL_FATURABILGI">
             <End Role="TBL_FATURABILGI" EntitySet="TBL_FATURABILGI" />
             <End Role="TBL_FATURADETAY" EntitySet="TBL_FATURADETAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER" Association="Self.FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER">
+            <End Role="TBL_PERSONELLER" EntitySet="TBL_PERSONELLER" />
+            <End Role="TBL_FIRMAHAREKETLER" EntitySet="TBL_FIRMAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_FIRMAHAREKETLER_TBL_URUNLER" Association="Self.FK_TBL_FIRMAHAREKETLER_TBL_URUNLER">
+            <End Role="TBL_URUNLER" EntitySet="TBL_URUNLER" />
+            <End Role="TBL_FIRMAHAREKETLER" EntitySet="TBL_FIRMAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER" Association="Self.FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER">
+            <End Role="TBL_MUSTERILER" EntitySet="TBL_MUSTERILER" />
+            <End Role="TBL_MUSTERIHAREKETLER" EntitySet="TBL_MUSTERIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER" Association="Self.FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER">
+            <End Role="TBL_PERSONELLER" EntitySet="TBL_PERSONELLER" />
+            <End Role="TBL_MUSTERIHAREKETLER" EntitySet="TBL_MUSTERIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER" Association="Self.FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER">
+            <End Role="TBL_URUNLER" EntitySet="TBL_URUNLER" />
+            <End Role="TBL_MUSTERIHAREKETLER" EntitySet="TBL_MUSTERIHAREKETLER" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -280,6 +394,30 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
             <End Role="TBL_FATURADETAY" EntitySet="TBL_FATURADETAY" />
           </AssociationSet>
           <EntitySet Name="TBL_NOTLAR" EntityType="DboTicariOtomasyonModel.TBL_NOTLAR" />
+          <EntitySet Name="TBL_FIRMAHAREKETLER" EntityType="DboTicariOtomasyonModel.TBL_FIRMAHAREKETLER" />
+          <EntitySet Name="TBL_MUSTERIHAREKETLER" EntityType="DboTicariOtomasyonModel.TBL_MUSTERIHAREKETLER" />
+          <AssociationSet Name="FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER" Association="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER">
+            <End Role="TBL_PERSONELLER" EntitySet="TBL_PERSONELLER" />
+            <End Role="TBL_FIRMAHAREKETLER" EntitySet="TBL_FIRMAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_FIRMAHAREKETLER_TBL_URUNLER" Association="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_URUNLER">
+            <End Role="TBL_URUNLER" EntitySet="TBL_URUNLER" />
+            <End Role="TBL_FIRMAHAREKETLER" EntitySet="TBL_FIRMAHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER" Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER">
+            <End Role="TBL_MUSTERILER" EntitySet="TBL_MUSTERILER" />
+            <End Role="TBL_MUSTERIHAREKETLER" EntitySet="TBL_MUSTERIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER" Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER">
+            <End Role="TBL_PERSONELLER" EntitySet="TBL_PERSONELLER" />
+            <End Role="TBL_MUSTERIHAREKETLER" EntitySet="TBL_MUSTERIHAREKETLER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER" Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER">
+            <End Role="TBL_URUNLER" EntitySet="TBL_URUNLER" />
+            <End Role="TBL_MUSTERIHAREKETLER" EntitySet="TBL_MUSTERIHAREKETLER" />
+          </AssociationSet>
+          <FunctionImport Name="FirmaHareketler" ReturnType="Collection(DboTicariOtomasyonModel.FirmaHareketler_Result)" />
+          <FunctionImport Name="MusteriHareketler" ReturnType="Collection(DboTicariOtomasyonModel.MusteriHareketler_Result)" />
         </EntityContainer>
         <EntityType Name="TBL_URUNLER">
           <Key>
@@ -294,6 +432,8 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="SatisFiyat" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="Detay" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_FIRMAHAREKETLER" Relationship="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_URUNLER" FromRole="TBL_URUNLER" ToRole="TBL_FIRMAHAREKETLER" />
+          <NavigationProperty Name="TBL_MUSTERIHAREKETLER" Relationship="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER" FromRole="TBL_URUNLER" ToRole="TBL_MUSTERIHAREKETLER" />
         </EntityType>
         <EntityType Name="TBL_MUSTERILER">
           <Key>
@@ -310,6 +450,7 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Name="Ilce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="VergiDaire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_MUSTERIHAREKETLER" Relationship="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER" FromRole="TBL_MUSTERILER" ToRole="TBL_MUSTERIHAREKETLER" />
         </EntityType>
         <EntityType Name="TBL_FIRMALAR">
           <Key>
@@ -349,6 +490,8 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Name="Ilce" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Gorev" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_FIRMAHAREKETLER" Relationship="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER" FromRole="TBL_PERSONELLER" ToRole="TBL_FIRMAHAREKETLER" />
+          <NavigationProperty Name="TBL_MUSTERIHAREKETLER" Relationship="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER" FromRole="TBL_PERSONELLER" ToRole="TBL_MUSTERIHAREKETLER" />
         </EntityType>
         <EntityType Name="TBL_KODLAR">
           <Key>
@@ -469,6 +612,125 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Name="Olusturan" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Hitap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="TBL_FIRMAHAREKETLER">
+          <Key>
+            <PropertyRef Name="HareketID" />
+          </Key>
+          <Property Name="HareketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunID" Type="Int32" />
+          <Property Name="Adet" Type="Byte" />
+          <Property Name="Personel" Type="Byte" />
+          <Property Name="Firma" Type="Int16" />
+          <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Toplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FaturaID" Type="Int32" />
+          <Property Name="Tarih" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Notlar" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_PERSONELLER" Relationship="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER" FromRole="TBL_FIRMAHAREKETLER" ToRole="TBL_PERSONELLER" />
+          <NavigationProperty Name="TBL_URUNLER" Relationship="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_URUNLER" FromRole="TBL_FIRMAHAREKETLER" ToRole="TBL_URUNLER" />
+        </EntityType>
+        <EntityType Name="TBL_MUSTERIHAREKETLER">
+          <Key>
+            <PropertyRef Name="HareketID" />
+          </Key>
+          <Property Name="HareketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunID" Type="Int32" />
+          <Property Name="Adet" Type="Byte" />
+          <Property Name="Personel" Type="Byte" />
+          <Property Name="Musteri" Type="Int16" />
+          <Property Name="Fiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Toplam" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FaturaID" Type="Int32" />
+          <Property Name="Tarih" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Notlar" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_MUSTERILER" Relationship="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER" FromRole="TBL_MUSTERIHAREKETLER" ToRole="TBL_MUSTERILER" />
+          <NavigationProperty Name="TBL_PERSONELLER" Relationship="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER" FromRole="TBL_MUSTERIHAREKETLER" ToRole="TBL_PERSONELLER" />
+          <NavigationProperty Name="TBL_URUNLER" Relationship="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER" FromRole="TBL_MUSTERIHAREKETLER" ToRole="TBL_URUNLER" />
+        </EntityType>
+        <Association Name="FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER">
+          <End Type="DboTicariOtomasyonModel.TBL_PERSONELLER" Role="TBL_PERSONELLER" Multiplicity="0..1" />
+          <End Type="DboTicariOtomasyonModel.TBL_FIRMAHAREKETLER" Role="TBL_FIRMAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSONELLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_FIRMAHAREKETLER">
+              <PropertyRef Name="Personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_FIRMAHAREKETLER_TBL_URUNLER">
+          <End Type="DboTicariOtomasyonModel.TBL_URUNLER" Role="TBL_URUNLER" Multiplicity="0..1" />
+          <End Type="DboTicariOtomasyonModel.TBL_FIRMAHAREKETLER" Role="TBL_FIRMAHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_URUNLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_FIRMAHAREKETLER">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER">
+          <End Type="DboTicariOtomasyonModel.TBL_MUSTERILER" Role="TBL_MUSTERILER" Multiplicity="0..1" />
+          <End Type="DboTicariOtomasyonModel.TBL_MUSTERIHAREKETLER" Role="TBL_MUSTERIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_MUSTERILER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_MUSTERIHAREKETLER">
+              <PropertyRef Name="Musteri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER">
+          <End Type="DboTicariOtomasyonModel.TBL_PERSONELLER" Role="TBL_PERSONELLER" Multiplicity="0..1" />
+          <End Type="DboTicariOtomasyonModel.TBL_MUSTERIHAREKETLER" Role="TBL_MUSTERIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSONELLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_MUSTERIHAREKETLER">
+              <PropertyRef Name="Personel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER">
+          <End Type="DboTicariOtomasyonModel.TBL_URUNLER" Role="TBL_URUNLER" Multiplicity="0..1" />
+          <End Type="DboTicariOtomasyonModel.TBL_MUSTERIHAREKETLER" Role="TBL_MUSTERIHAREKETLER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_URUNLER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_MUSTERIHAREKETLER">
+              <PropertyRef Name="UrunID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FirmaHareketler_Result">
+          <Property Type="Int32" Name="HareketID" Nullable="false" />
+          <Property Type="String" Name="UrunAD" Nullable="true" MaxLength="20" />
+          <Property Type="Byte" Name="Adet" Nullable="true" />
+          <Property Type="String" Name="PERSONEL" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="FİRMA" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Fiyat" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Toplam" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="FaturaID" Nullable="true" />
+          <Property Type="String" Name="Tarih" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Notlar" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="MusteriHareketler_Result">
+          <Property Type="Int32" Name="HareketID" Nullable="false" />
+          <Property Type="String" Name="UrunAD" Nullable="true" MaxLength="20" />
+          <Property Type="Byte" Name="Adet" Nullable="true" />
+          <Property Type="String" Name="PERSONEL" Nullable="true" MaxLength="51" />
+          <Property Type="String" Name="Müşteri" Nullable="true" MaxLength="51" />
+          <Property Type="Decimal" Name="Fiyat" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Toplam" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="FaturaID" Nullable="true" />
+          <Property Type="String" Name="Tarih" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Notlar" Nullable="true" MaxLength="250" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -675,6 +937,70 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TBL_FIRMAHAREKETLER">
+            <EntityTypeMapping TypeName="DboTicariOtomasyonModel.TBL_FIRMAHAREKETLER">
+              <MappingFragment StoreEntitySet="TBL_FIRMAHAREKETLER">
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="Personel" ColumnName="Personel" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+                <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_MUSTERIHAREKETLER">
+            <EntityTypeMapping TypeName="DboTicariOtomasyonModel.TBL_MUSTERIHAREKETLER">
+              <MappingFragment StoreEntitySet="TBL_MUSTERIHAREKETLER">
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Musteri" ColumnName="Musteri" />
+                <ScalarProperty Name="Personel" ColumnName="Personel" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+                <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FirmaHareketler" FunctionName="DboTicariOtomasyonModel.Store.FirmaHareketler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DboTicariOtomasyonModel.FirmaHareketler_Result">
+                <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+                <ScalarProperty Name="UrunAD" ColumnName="UrunAD" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="FİRMA" ColumnName="FİRMA" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MusteriHareketler" FunctionName="DboTicariOtomasyonModel.Store.MusteriHareketler">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DboTicariOtomasyonModel.MusteriHareketler_Result">
+                <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+                <ScalarProperty Name="UrunAD" ColumnName="UrunAD" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
+                <ScalarProperty Name="Müşteri" ColumnName="Müşteri" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+                <ScalarProperty Name="FaturaID" ColumnName="FaturaID" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

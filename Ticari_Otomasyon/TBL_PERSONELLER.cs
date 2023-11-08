@@ -14,6 +14,13 @@ namespace Ticari_Otomasyon
     
     public partial class TBL_PERSONELLER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_PERSONELLER()
+        {
+            this.TBL_FIRMAHAREKETLER = new HashSet<TBL_FIRMAHAREKETLER>();
+            this.TBL_MUSTERIHAREKETLER = new HashSet<TBL_MUSTERIHAREKETLER>();
+        }
+    
         public byte ID { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
@@ -24,5 +31,10 @@ namespace Ticari_Otomasyon
         public string Ilce { get; set; }
         public string Adres { get; set; }
         public string Gorev { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_FIRMAHAREKETLER> TBL_FIRMAHAREKETLER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_MUSTERIHAREKETLER> TBL_MUSTERIHAREKETLER { get; set; }
     }
 }

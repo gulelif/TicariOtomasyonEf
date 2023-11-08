@@ -40,10 +40,22 @@ namespace Ticari_Otomasyon
         public virtual DbSet<TBL_FATURABILGI> TBL_FATURABILGI { get; set; }
         public virtual DbSet<TBL_FATURADETAY> TBL_FATURADETAY { get; set; }
         public virtual DbSet<TBL_NOTLAR> TBL_NOTLAR { get; set; }
+        public virtual DbSet<TBL_FIRMAHAREKETLER> TBL_FIRMAHAREKETLER { get; set; }
+        public virtual DbSet<TBL_MUSTERIHAREKETLER> TBL_MUSTERIHAREKETLER { get; set; }
     
         public virtual ObjectResult<BankaBilgileri_Result> BankaBilgileri()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<BankaBilgileri_Result>("BankaBilgileri");
+        }
+    
+        public virtual ObjectResult<FirmaHareketler_Result> FirmaHareketler()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FirmaHareketler_Result>("FirmaHareketler");
+        }
+    
+        public virtual ObjectResult<MusteriHareketler_Result> MusteriHareketler()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MusteriHareketler_Result>("MusteriHareketler");
         }
     }
 }
