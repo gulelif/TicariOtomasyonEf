@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DboTicariOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_ADMIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAd" Type="varchar" MaxLength="10" />
+          <Property Name="Sifre" Type="varchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="TBL_BANKALAR">
           <Key>
             <PropertyRef Name="ID" />
@@ -294,6 +302,7 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
         <Function Name="FirmaHareketler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="MusteriHareketler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DboTicariOtomasyonModelStoreContainer">
+          <EntitySet Name="TBL_ADMIN" EntityType="Self.TBL_ADMIN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_BANKALAR" EntityType="Self.TBL_BANKALAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_FATURABILGI" EntityType="Self.TBL_FATURABILGI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_FATURADETAY" EntityType="Self.TBL_FATURADETAY" Schema="dbo" store:Type="Tables" />
@@ -363,18 +372,9 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sehir" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="TBL_STOKLAR">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StokTur" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="StokAdet" Type="Int16" />
-        </EntityType>
         <EntityContainer Name="DboTicariOtomasyonEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TBL_ILCELER" EntityType="Self.TBL_ILCELER" />
           <EntitySet Name="TBL_ILLER" EntityType="Self.TBL_ILLER" />
-          <EntitySet Name="TBL_STOKLAR" EntityType="Self.TBL_STOKLAR" />
           <EntitySet Name="TBL_URUNLER" EntityType="DboTicariOtomasyonModel.TBL_URUNLER" />
           <EntitySet Name="TBL_MUSTERILER" EntityType="DboTicariOtomasyonModel.TBL_MUSTERILER" />
           <EntitySet Name="TBL_FIRMALAR" EntityType="DboTicariOtomasyonModel.TBL_FIRMALAR" />
@@ -418,6 +418,8 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           </AssociationSet>
           <FunctionImport Name="FirmaHareketler" ReturnType="Collection(DboTicariOtomasyonModel.FirmaHareketler_Result)" />
           <FunctionImport Name="MusteriHareketler" ReturnType="Collection(DboTicariOtomasyonModel.MusteriHareketler_Result)" />
+          <EntitySet Name="TBL_STOKLAR" EntityType="DboTicariOtomasyonModel.TBL_STOKLAR" />
+          <EntitySet Name="TBL_ADMIN" EntityType="DboTicariOtomasyonModel.TBL_ADMIN" />
         </EntityContainer>
         <EntityType Name="TBL_URUNLER">
           <Key>
@@ -731,6 +733,22 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Type="String" Name="Tarih" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Notlar" Nullable="true" MaxLength="250" />
         </ComplexType>
+        <EntityType Name="TBL_STOKLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokTur" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="StokAdet" Type="Int16" />
+        </EntityType>
+        <EntityType Name="TBL_ADMIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -751,15 +769,6 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
               <MappingFragment StoreEntitySet="TBL_ILLER">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Sehir" ColumnName="Sehir" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_STOKLAR">
-            <EntityTypeMapping TypeName="DboTicariOtomasyonModel.TBL_STOKLAR">
-              <MappingFragment StoreEntitySet="TBL_STOKLAR">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="StokTur" ColumnName="StokTur" />
-                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1001,6 +1010,24 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="TBL_STOKLAR">
+            <EntityTypeMapping TypeName="DboTicariOtomasyonModel.TBL_STOKLAR">
+              <MappingFragment StoreEntitySet="TBL_STOKLAR">
+                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
+                <ScalarProperty Name="StokTur" ColumnName="StokTur" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ADMIN">
+            <EntityTypeMapping TypeName="DboTicariOtomasyonModel.TBL_ADMIN">
+              <MappingFragment StoreEntitySet="TBL_ADMIN">
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

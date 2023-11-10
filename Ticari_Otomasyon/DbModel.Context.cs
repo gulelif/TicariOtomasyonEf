@@ -29,7 +29,6 @@ namespace Ticari_Otomasyon
     
         public virtual DbSet<TBL_ILCELER> TBL_ILCELER { get; set; }
         public virtual DbSet<TBL_ILLER> TBL_ILLER { get; set; }
-        public virtual DbSet<TBL_STOKLAR> TBL_STOKLAR { get; set; }
         public virtual DbSet<TBL_URUNLER> TBL_URUNLER { get; set; }
         public virtual DbSet<TBL_MUSTERILER> TBL_MUSTERILER { get; set; }
         public virtual DbSet<TBL_FIRMALAR> TBL_FIRMALAR { get; set; }
@@ -42,6 +41,8 @@ namespace Ticari_Otomasyon
         public virtual DbSet<TBL_NOTLAR> TBL_NOTLAR { get; set; }
         public virtual DbSet<TBL_FIRMAHAREKETLER> TBL_FIRMAHAREKETLER { get; set; }
         public virtual DbSet<TBL_MUSTERIHAREKETLER> TBL_MUSTERIHAREKETLER { get; set; }
+        public virtual DbSet<TBL_STOKLAR> TBL_STOKLAR { get; set; }
+        public virtual DbSet<TBL_ADMIN> TBL_ADMIN { get; set; }
     
         public virtual ObjectResult<BankaBilgileri_Result> BankaBilgileri()
         {
