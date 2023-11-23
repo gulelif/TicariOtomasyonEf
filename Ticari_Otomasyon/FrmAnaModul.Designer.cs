@@ -102,6 +102,7 @@
             this.BtnStoklar.ItemAppearance.Normal.Options.UseFont = true;
             this.BtnStoklar.Name = "BtnStoklar";
             this.BtnStoklar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.BtnStoklar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnStoklar_ItemClick);
             // 
             // BtnMusteriler
             // 
@@ -171,6 +172,7 @@
             this.BtnKasa.ItemAppearance.Normal.Options.UseFont = true;
             this.BtnKasa.Name = "BtnKasa";
             this.BtnKasa.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.BtnKasa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnKasa_ItemClick);
             // 
             // BtnNotlar
             // 
@@ -229,6 +231,7 @@
             this.BtnAyarlar.ItemAppearance.Normal.Options.UseFont = true;
             this.BtnAyarlar.Name = "BtnAyarlar";
             this.BtnAyarlar.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.BtnAyarlar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnAyarlar_ItemClick);
             // 
             // BtnHareketler
             // 

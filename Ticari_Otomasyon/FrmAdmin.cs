@@ -24,6 +24,7 @@ namespace Ticari_Otomasyon
             if(login.Count > 0 ) {
 
                 FrmAnaModul fr = new FrmAnaModul();
+                fr.kullanici = TxtKullaniciAdi.Text;
                 fr.Show();
                 this.Hide();
             }
@@ -32,6 +33,11 @@ namespace Ticari_Otomasyon
                 MessageBox.Show("Hatalı Kullanıcı Adı ya da Parola", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+        }
+
+        private void FrmAdmin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
