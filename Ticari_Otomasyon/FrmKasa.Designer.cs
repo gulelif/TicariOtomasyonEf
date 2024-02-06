@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKasa));
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView1 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.XYDiagram xyDiagram9 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideBarSeriesView sideBySideBarSeriesView5 = new DevExpress.XtraCharts.SideBySideBarSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram10 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
             this.LblOdemeler = new System.Windows.Forms.Label();
             this.LblAktifKullanici = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -122,14 +122,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
             this.groupControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).BeginInit();
             this.groupControl10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
             this.SuspendLayout();
             // 
             // LblOdemeler
@@ -404,22 +404,25 @@
             // 
             // groupControl24
             // 
+            this.groupControl24.AutoSize = true;
+            this.groupControl24.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupControl24.Controls.Add(this.gridControl1);
             this.groupControl24.Controls.Add(this.gridControl3);
             this.groupControl24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl24.Location = new System.Drawing.Point(360, 0);
+            this.groupControl24.Location = new System.Drawing.Point(358, 0);
             this.groupControl24.Name = "groupControl24";
             this.groupControl24.ShowCaption = false;
-            this.groupControl24.Size = new System.Drawing.Size(1022, 533);
+            this.groupControl24.Size = new System.Drawing.Size(1024, 533);
             this.groupControl24.TabIndex = 15;
             this.groupControl24.Text = "groupControl24";
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridControl1.Location = new System.Drawing.Point(2, 306);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1018, 252);
+            this.gridControl1.Size = new System.Drawing.Size(1020, 229);
             this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -440,10 +443,11 @@
             // 
             // gridControl3
             // 
-            this.gridControl3.Location = new System.Drawing.Point(2, 254);
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridControl3.Location = new System.Drawing.Point(2, 2);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1018, 277);
+            this.gridControl3.Size = new System.Drawing.Size(1020, 304);
             this.gridControl3.TabIndex = 13;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3,
@@ -470,6 +474,8 @@
             // 
             // groupControl23
             // 
+            this.groupControl23.AutoSize = true;
+            this.groupControl23.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupControl23.Controls.Add(this.groupControl1);
             this.groupControl23.Controls.Add(this.groupControl2);
             this.groupControl23.Controls.Add(this.groupControl9);
@@ -482,7 +488,7 @@
             this.groupControl23.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl23.Location = new System.Drawing.Point(0, 0);
             this.groupControl23.Name = "groupControl23";
-            this.groupControl23.Size = new System.Drawing.Size(360, 533);
+            this.groupControl23.Size = new System.Drawing.Size(358, 533);
             this.groupControl23.TabIndex = 14;
             // 
             // groupControl1
@@ -590,18 +596,18 @@
             // chartControl1
             // 
             this.chartControl1.BorderOptions.Color = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(129)))), ((int)(((byte)(189)))));
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram1;
+            xyDiagram9.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram9.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = xyDiagram9;
             this.chartControl1.Legend.LegendID = -1;
             this.chartControl1.Location = new System.Drawing.Point(0, 24);
             this.chartControl1.Name = "chartControl1";
-            series1.Name = "Aylar";
-            series1.SeriesID = 3;
-            sideBySideBarSeriesView1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(100)))), ((int)(((byte)(162)))));
-            series1.View = sideBySideBarSeriesView1;
+            series9.Name = "Aylar";
+            series9.SeriesID = 3;
+            sideBySideBarSeriesView5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(100)))), ((int)(((byte)(162)))));
+            series9.View = sideBySideBarSeriesView5;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
+        series9};
             this.chartControl1.Size = new System.Drawing.Size(338, 234);
             this.chartControl1.TabIndex = 7;
             this.chartControl1.MouseLeave += new System.EventHandler(this.chartControl1_MouseHover);
@@ -620,16 +626,16 @@
             // 
             // chartControl2
             // 
-            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl2.Diagram = xyDiagram2;
+            xyDiagram10.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram10.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl2.Diagram = xyDiagram10;
             this.chartControl2.Legend.LegendID = -1;
             this.chartControl2.Location = new System.Drawing.Point(4, 26);
             this.chartControl2.Name = "chartControl2";
-            series2.Name = "Aylar";
-            series2.SeriesID = 3;
+            series10.Name = "Aylar";
+            series10.SeriesID = 3;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
+        series10};
             this.chartControl2.Size = new System.Drawing.Size(334, 224);
             this.chartControl2.TabIndex = 8;
             this.chartControl2.MouseLeave += new System.EventHandler(this.chartControl2_MouseHover);
@@ -688,6 +694,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl24)).EndInit();
             this.groupControl24.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -711,14 +718,14 @@
             this.groupControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
             this.groupControl11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).EndInit();
             this.groupControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             this.ResumeLayout(false);
 

@@ -47,5 +47,19 @@ namespace Ticari_Otomasyon
 
             }
         }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            FrmStokDetay frm = new FrmStokDetay();
+            var x =gridView1.GetFocusedRowCellValue("UrunAd");
+            if (x != null)
+            {
+                frm.ad = x.ToString();
+            }
+
+            frm.Show();
+
+            
+        }
     }
 }

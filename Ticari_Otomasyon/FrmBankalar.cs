@@ -178,5 +178,7 @@ namespace Ticari_Otomasyon
                 BankaListesi();
             }
         }
+
+       
     }
 }

@@ -80,7 +80,7 @@ namespace Ticari_Otomasyon
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-             TBL_FIRMALAR x = (TBL_FIRMALAR)gridView1.GetRow(gridView1.FocusedRowHandle);
+            TBL_FIRMALAR x = (TBL_FIRMALAR)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (x != null)
             {
                 TxtID.Text = x.ID.ToString();
@@ -126,6 +126,74 @@ namespace Ticari_Otomasyon
             }
         }
 
-       
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            TBL_FIRMALAR firma = new TBL_FIRMALAR
+            {
+                Ad = TxtAd.Text,
+                YetkiliStatu = TxtGorev.Text,
+                YetkiliAdSoyad = TxtYetkili.Text,
+                YetkiliTc = MskTc.Text,
+                Sektor = TxtSektor.Text,
+                Telefon1 = MskTelefon1.Text,
+                Telefon2 = MskTelefon2.Text,
+                Telefon3 = MskTelefon3.Text,
+                Mail = TxtMail.Text,
+                Fax = MskFax.Text,
+                Ilce = CmbIlce.Text,
+                Sehir = Cmbil.Text,
+                VergiDaire = TxtVergiD.Text,
+                Adres = RchAdres.Text,
+                OzelKod1 = TxtKod1.Text,
+                OzelKod2 = TxtKod2.Text,
+                OzelKod3 = TxtKod3.Text,
+
+
+            };
+            context.TBL_FIRMALAR.Add(firma);
+            context.SaveChanges();
+
+
+            MessageBox.Show("Firma Sisteme Eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FirmaListesi();
+
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+
+            if (TxtID.Text != "")
+            {
+                TBL_FIRMALAR firma = new TBL_FIRMALAR
+                {
+                    ID = short.Parse(TxtID.Text),
+                    Ad = TxtAd.Text,
+                    YetkiliStatu = TxtGorev.Text,
+                    YetkiliAdSoyad = TxtYetkili.Text,
+                    YetkiliTc = MskTc.Text,
+                    Sektor = TxtSektor.Text,
+                    Telefon1 = MskTelefon1.Text,
+                    Telefon2 = MskTelefon2.Text,
+                    Telefon3 = MskTelefon3.Text,
+                    Mail = TxtMail.Text,
+                    Fax = MskFax.Text,
+                    Ilce = CmbIlce.Text,
+                    Sehir = Cmbil.Text,
+                    VergiDaire = TxtVergiD.Text,
+                    Adres = RchAdres.Text,
+                    OzelKod1 = TxtKod1.Text,
+                    OzelKod2 = TxtKod2.Text,
+                    OzelKod3 = TxtKod3.Text,
+
+
+                };
+                context.TBL_FIRMALAR.AddOrUpdate(firma);
+                context.SaveChanges();
+                MessageBox.Show("Firma Güncellendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                FirmaListesi();
+            }
+        }
+
+    
     }
 }

@@ -10,18 +10,13 @@
 namespace Ticari_Otomasyon
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TBL_FATURADETAY
+    public partial class FirmaHareket2_Result
     {
-        public int FaturaUrunID { get; set; }
-        public string UrunAd { get; set; }
-        public Nullable<short> Miktar { get; set; }
+        public string UrunAD { get; set; }
+        public Nullable<byte> Adet { get; set; }
+        public string FİRMA { get; set; }
         public Nullable<decimal> Fiyat { get; set; }
-        public Nullable<decimal> Tutar { get; set; }
-        public Nullable<int> FaturaID { get; set; }
-    
-        public virtual TBL_FATURABILGI TBL_FATURABILGI { get; set; }
-
+        public Nullable<decimal> Toplam { get; set; }
     }
 }

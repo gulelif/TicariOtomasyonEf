@@ -138,6 +138,7 @@
             this.BtnAnasayfa.ItemAppearance.Normal.Options.UseFont = true;
             this.BtnAnasayfa.Name = "BtnAnasayfa";
             this.BtnAnasayfa.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.BtnAnasayfa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnAnasayfa_ItemClick);
             // 
             // BtnPersoneller
             // 
@@ -235,7 +236,7 @@
             // 
             // BtnHareketler
             // 
-            this.BtnHareketler.Caption = "Hareketler";
+            this.BtnHareketler.Caption = "HAREKETLER";
             this.BtnHareketler.Id = 14;
             this.BtnHareketler.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BtnHareketler.ImageOptions.Image")));
             this.BtnHareketler.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BtnHareketler.ImageOptions.LargeImage")));
@@ -296,6 +297,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmAnaModul_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);

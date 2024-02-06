@@ -299,6 +299,7 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           </ReferentialConstraint>
         </Association>
         <Function Name="BankaBilgileri" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FirmaHareket2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="FirmaHareketler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="MusteriHareketler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DboTicariOtomasyonModelStoreContainer">
@@ -420,6 +421,7 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <FunctionImport Name="MusteriHareketler" ReturnType="Collection(DboTicariOtomasyonModel.MusteriHareketler_Result)" />
           <EntitySet Name="TBL_STOKLAR" EntityType="DboTicariOtomasyonModel.TBL_STOKLAR" />
           <EntitySet Name="TBL_ADMIN" EntityType="DboTicariOtomasyonModel.TBL_ADMIN" />
+          <FunctionImport Name="FirmaHareket2" ReturnType="Collection(DboTicariOtomasyonModel.FirmaHareket2_Result)" />
         </EntityContainer>
         <EntityType Name="TBL_URUNLER">
           <Key>
@@ -749,6 +751,13 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
           <Property Name="KullaniciAd" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="FirmaHareket2_Result">
+          <Property Type="String" Name="UrunAD" Nullable="true" MaxLength="20" />
+          <Property Type="Byte" Name="Adet" Nullable="true" />
+          <Property Type="String" Name="FİRMA" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Fiyat" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Toplam" Nullable="true" Precision="18" Scale="2" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1028,6 +1037,17 @@ warning 6002: The table/view 'DboTicariOtomasyon.dbo.TBL_STOKLAR' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FirmaHareket2" FunctionName="DboTicariOtomasyonModel.Store.FirmaHareket2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DboTicariOtomasyonModel.FirmaHareket2_Result">
+                <ScalarProperty Name="UrunAD" ColumnName="UrunAD" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="FİRMA" ColumnName="FİRMA" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

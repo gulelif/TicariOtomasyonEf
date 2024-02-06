@@ -160,5 +160,7 @@ namespace Ticari_Otomasyon
         {
             temizle();
         }
+
+        
     }
 }

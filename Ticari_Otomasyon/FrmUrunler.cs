@@ -37,21 +37,16 @@ namespace Ticari_Otomasyon
             TBL_URUNLER urun = new TBL_URUNLER
             {
                 UrunAd = TxtAd.Text,
-                Marka = TxtMarka.Text,
-                Model = TxtModel.Text,
-                Yil = MskYil.Text,
-                Adet = short.Parse((NudAdet.Value).ToString()),
-                AlisFiyat = decimal.Parse((TxtAlis.Text)),
-                SatisFiyat = decimal.Parse((TxtSatis.Text)),
-                Detay = RchDetay.Text
-
-
+                Model= TxtModel.Text,
+                Marka=TxtMarka.Text,
+                Yil=MskYil.Text,
+                Detay=RchDetay.Text,
+                Adet= (short?)NudAdet.Value,
+                AlisFiyat = decimal.Parse(TxtAlis.Text),
+                SatisFiyat = decimal.Parse(TxtSatis.Text)
             };
             context.TBL_URUNLER.Add(urun);
             context.SaveChanges();
-           
-           
-            MessageBox.Show("Ürün Sisteme Eklendi!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             UrunListele();
         }
 
@@ -74,7 +69,9 @@ namespace Ticari_Otomasyon
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
-            if (TxtID.Text != "")
+            DialogResult delete = new DialogResult();
+            delete = MessageBox.Show("Ürünü Silmek İstiyor musunuz ?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (delete == DialogResult.Yes)
             {
                 TBL_URUNLER urun = context.TBL_URUNLER.Find(int.Parse(TxtID.Text));
                 context.TBL_URUNLER.Remove(urun);
@@ -82,28 +79,32 @@ namespace Ticari_Otomasyon
                 MessageBox.Show("Ürün Silindi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UrunListele();
             }
+
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-            TBL_URUNLER urun = new TBL_URUNLER
+            if (TxtID.Text != "")
             {
-                ID= int.Parse(TxtID.Text),
-                UrunAd = TxtAd.Text,
-                Marka = TxtMarka.Text,
-                Model = TxtModel.Text,
-                Yil = MskYil.Text,
-                Adet = short.Parse((NudAdet.Value).ToString()),
-                AlisFiyat = decimal.Parse((TxtAlis.Text)),
-                SatisFiyat = decimal.Parse((TxtSatis.Text)),
-                Detay = RchDetay.Text
+                TBL_URUNLER urun = new TBL_URUNLER
+                {
+                    ID = short.Parse(TxtID.Text),
+                    UrunAd = TxtAd.Text,
+                    Model = TxtModel.Text,
+                    Marka = TxtMarka.Text,
+                    Yil = MskYil.Text,
+                    Detay = RchDetay.Text,
+                    Adet = (short?)NudAdet.Value,
+                    AlisFiyat = decimal.Parse(TxtAlis.Text),
+                    SatisFiyat = decimal.Parse(TxtSatis.Text)
 
 
-            };
-            context.TBL_URUNLER.AddOrUpdate(urun);
-            context.SaveChanges();
-            MessageBox.Show("Ürün Güncellendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            UrunListele();
+                };
+                context.TBL_URUNLER.AddOrUpdate(urun);
+                context.SaveChanges();
+                MessageBox.Show("Ürün Güncellendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                UrunListele();
+            }
         }
 
         void temizle()
@@ -124,5 +125,7 @@ namespace Ticari_Otomasyon
         {
             temizle();
         }
+
+      
     }
 }

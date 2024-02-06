@@ -77,7 +77,7 @@ namespace Ticari_Otomasyon
                 Cmbil.Text = x.Sehir;
                 CmbIlce.Text = x.Ilce;
                 RchAdres.Text = x.Adres;
-               
+
             }
         }
 
@@ -154,5 +154,7 @@ namespace Ticari_Otomasyon
         {
             temizle();
         }
+
+       
     }
 }

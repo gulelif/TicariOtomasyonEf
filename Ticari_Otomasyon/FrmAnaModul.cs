@@ -176,5 +176,26 @@ namespace Ticari_Otomasyon
             }
 
         }
+
+        FrmAnasayfa fr15;
+        private void FrmAnaModul_Load(object sender, EventArgs e)
+        {
+            if (fr15 == null)
+            {
+                fr15 = new FrmAnasayfa();
+                fr15.MdiParent = this;
+                fr15.Show();
+            }
+        }
+
+        private void BtnAnasayfa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr15 == null)
+            {
+                fr15 = new FrmAnasayfa();
+                fr15.MdiParent = this;
+                fr15.Show();
+            }
+        }
     }
 }

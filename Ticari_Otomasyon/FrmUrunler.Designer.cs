@@ -75,6 +75,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // gridControl1
             // 
@@ -97,6 +98,7 @@
             this.BtnTemizle.Size = new System.Drawing.Size(144, 30);
             this.BtnTemizle.TabIndex = 12;
             this.BtnTemizle.Text = "Temizle";
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // BtnGuncelle
             // 
@@ -108,6 +110,7 @@
             this.BtnGuncelle.Size = new System.Drawing.Size(142, 32);
             this.BtnGuncelle.TabIndex = 11;
             this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnSil
             // 
@@ -119,6 +122,7 @@
             this.BtnSil.Size = new System.Drawing.Size(142, 32);
             this.BtnSil.TabIndex = 10;
             this.BtnSil.Text = "Sil";
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // sidePanel1
             // 
@@ -138,6 +142,7 @@
             this.BtnKaydet.Size = new System.Drawing.Size(142, 32);
             this.BtnKaydet.TabIndex = 9;
             this.BtnKaydet.Text = "Kaydet";
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // RchDetay
             // 
@@ -350,7 +355,7 @@
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmUrunler";
-            this.Text = "ÜRÜNLER";
+            this.Text = "Ürünler";
             this.Load += new System.EventHandler(this.FrmUrunler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

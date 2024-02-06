@@ -141,5 +141,7 @@ namespace Ticari_Otomasyon
                 GiderListesi();
             }
         }
+
+      
     }
 }

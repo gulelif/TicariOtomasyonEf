@@ -27,12 +27,12 @@ namespace Ticari_Otomasyon
         {
             MailMessage mesajım = new MailMessage();
             SmtpClient istemci = new SmtpClient();
-            istemci.Credentials = new System.Net.NetworkCredential("elifsflk@gmail.com", "şifre");
+            istemci.Credentials = new System.Net.NetworkCredential("elif@gmail.com", "şifre");
             istemci.Port = 587;
             istemci.Host = "smtp.live.com";
             istemci.EnableSsl = true;
             mesajım.To.Add(TxtMailAdres.Text);
-            mesajım.From = new MailAddress("elifsflk@gmail.com");
+            mesajım.From = new MailAddress("elif@gmail.com");
             mesajım.Subject = TxtKonu.Text;
             mesajım.Body = TxtMesaj.Text;
             istemci.Send(mesajım);

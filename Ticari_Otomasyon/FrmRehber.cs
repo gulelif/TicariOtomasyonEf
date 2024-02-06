@@ -25,7 +25,7 @@ namespace Ticari_Otomasyon
         }
         void FirmaListesi()
         {
-            gridControl1.DataSource = context.TBL_FIRMALAR.ToList();
+            gridControl2.DataSource = context.TBL_FIRMALAR.ToList();
         }
 
       
@@ -34,6 +34,30 @@ namespace Ticari_Otomasyon
         {
             MusteriListesi();
             FirmaListesi();
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            FrmMail frm = new FrmMail();
+            TBL_MUSTERILER x = (TBL_MUSTERILER)gridView1.GetRow(gridView1.FocusedRowHandle);
+            if (x != null)
+            {
+                frm.mail = x.Mail.ToString();
+            }
+          
+            frm.Show();
+        }
+
+        private void gridView2_DoubleClick(object sender, EventArgs e)
+        {
+            FrmMail frm = new FrmMail();
+            TBL_FIRMALAR x = (TBL_FIRMALAR)gridView2.GetRow(gridView2.FocusedRowHandle);
+            if (x != null)
+            {
+                frm.mail = x.Mail.ToString();
+            }
+
+            frm.Show();
         }
     }
 }

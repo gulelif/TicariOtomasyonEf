@@ -137,6 +137,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DboTicariOtomasyonDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FirmaHareket2_Result.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FirmaHareketler_Result.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -151,6 +154,12 @@
     </Compile>
     <Compile Include="FrmAnaModul.Designer.cs">
       <DependentUpon>FrmAnaModul.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnasayfa.Designer.cs">
+      <DependentUpon>FrmAnasayfa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAyarlar.cs">
       <SubType>Form</SubType>
@@ -248,6 +257,12 @@
     <Compile Include="FrmRehber.Designer.cs">
       <DependentUpon>FrmRehber.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStokDetay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStokDetay.Designer.cs">
+      <DependentUpon>FrmStokDetay.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStoklar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +334,9 @@
     <EmbeddedResource Include="FrmAnaModul.resx">
       <DependentUpon>FrmAnaModul.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnasayfa.resx">
+      <DependentUpon>FrmAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAyarlar.resx">
       <DependentUpon>FrmAyarlar.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRehber.resx">
       <DependentUpon>FrmRehber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStokDetay.resx">
+      <DependentUpon>FrmStokDetay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStoklar.resx">
       <DependentUpon>FrmStoklar.cs</DependentUpon>

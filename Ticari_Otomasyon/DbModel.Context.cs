@@ -58,5 +58,10 @@ namespace Ticari_Otomasyon
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<MusteriHareketler_Result>("MusteriHareketler");
         }
+    
+        public virtual ObjectResult<FirmaHareket2_Result> FirmaHareket2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FirmaHareket2_Result>("FirmaHareket2");
+        }
     }
 }
