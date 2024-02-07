@@ -76,6 +76,8 @@ namespace Ticari_Otomasyon
                 };
                 context.TBL_FATURABILGI.Add(fatura);
                 context.SaveChanges();
+                MessageBox.Show("Fatura Sisteme Eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             else
             {
@@ -98,24 +100,47 @@ namespace Ticari_Otomasyon
                 context.SaveChanges();
 
                 //Hareket tablosuna veri girişi
-                TBL_FIRMAHAREKETLER hareket = new TBL_FIRMAHAREKETLER
+                //Firma Carisi
+                if (comboBox1.Text == "Firma")
                 {
-                    UrunID=Convert.ToInt32(TxtUrunID.Text),
-                    Adet = (byte?)miktar,
-                    Personel= Convert.ToByte(TxtPersonel.Text),
-                    Firma= Convert.ToByte(TxtFirma.Text),
-                    Fiyat= (decimal?)fiyat,
-                    Toplam= (decimal?)tutar,
-                    FaturaID=Convert.ToInt32(TxtFaturaID.Text),
-                    Tarih=MskTarih.Text
+                    TBL_FIRMAHAREKETLER hareket = new TBL_FIRMAHAREKETLER
+                    {
+                        UrunID = Convert.ToInt32(TxtUrunID.Text),
+                        Adet = (byte?)miktar,
+                        Personel = Convert.ToByte(TxtPersonel.Text),
+                        Firma = Convert.ToByte(TxtAliciID.Text),
+                        Fiyat = (decimal?)fiyat,
+                        Toplam = (decimal?)tutar,
+                        FaturaID = Convert.ToInt32(TxtFaturaID.Text),
+                        Tarih = MskTarih.Text
 
 
-                };
-                context.TBL_FIRMAHAREKETLER.Add(hareket);
-                context.SaveChanges();
+                    };
+                    context.TBL_FIRMAHAREKETLER.Add(hareket);
+                    context.SaveChanges();
+                }
+                //Müşteri Carisi
+                else
+                {
+                    TBL_MUSTERIHAREKETLER hareket = new TBL_MUSTERIHAREKETLER
+                    {
+                        UrunID = Convert.ToInt32(TxtUrunID.Text),
+                        Adet = (byte?)miktar,
+                        Personel = Convert.ToByte(TxtPersonel.Text),
+                        Musteri = Convert.ToByte(TxtAliciID.Text),
+                        Fiyat = (decimal?)fiyat,
+                        Toplam = (decimal?)tutar,
+                        FaturaID = Convert.ToInt32(TxtFaturaID.Text),
+                        Tarih = MskTarih.Text
 
-                //stok sayısını azaltma
-                TBL_URUNLER urun = context.TBL_URUNLER.Find(int.Parse(TxtUrunID.Text));
+
+                    };
+                    context.TBL_MUSTERIHAREKETLER.Add(hareket);
+                    context.SaveChanges();
+                }
+
+                    //stok sayısını azaltma
+                    TBL_URUNLER urun = context.TBL_URUNLER.Find(int.Parse(TxtUrunID.Text));
                 int kalan = (int)(urun.Adet - miktar);
                 
                 TBL_URUNLER urun2 = new TBL_URUNLER
@@ -126,11 +151,11 @@ namespace Ticari_Otomasyon
 
                   context.TBL_URUNLER.AddOrUpdate(urun2);
                 context.SaveChanges();
-             
+                MessageBox.Show("Faturaya Ait Ürün Sisteme Eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
 
 
-            MessageBox.Show("Faturaya Ait Ürün Sisteme Eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             FaturaListele();
         }
 
@@ -208,6 +233,7 @@ namespace Ticari_Otomasyon
             }
         }
 
+     
         private void BtnBul_Click(object sender, EventArgs e)
         {
             TBL_URUNLER urun = context.TBL_URUNLER.Find(int.Parse(TxtUrunID.Text));
