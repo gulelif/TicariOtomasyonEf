@@ -15,7 +15,7 @@ namespace Ticari_Otomasyon
         DboTicariOtomasyonEntities1 context = new DboTicariOtomasyonEntities1();
         void AzalanStoklar()
         {
-           
+           // AZALAN STOKLAR.. 20 ADETTEN AZ KALAN ÜRÜN AZDAN ÇOK OLANA DOĞRU SIRALANDI
             gridControlStoklar.DataSource = context.TBL_URUNLER.GroupBy(x=>x.UrunAd)
                 .Select(grp => new
                 {
@@ -26,7 +26,7 @@ namespace Ticari_Otomasyon
         }
         void Ajanda()
         {
-           
+           //NOTLAR YAKLAŞAN TARİH ÜSTTE OLACAK ŞEKİLDE SIRALANDI
             gridControlAjanda.DataSource = context.TBL_NOTLAR.OrderByDescending(x=>x.ID).Select(x=> new
             {
                Tarih= x.Tarih,
@@ -36,17 +36,20 @@ namespace Ticari_Otomasyon
         }
         void Son10Hareket()
         {
+            //FİRMALARIN SON HAREKETLERİ LİSTELENDİ
             gridControlSonHareketler.DataSource = context.FirmaHareket2().ToList();
            
         }
         void Fihrist()
         {
+            //FİRMALARIN ADI VE TELEFON NUMARASI LİSTELENDİ
             gridControlFihrist.DataSource = context.TBL_FIRMALAR.Select(x=>new {x.Ad,x.Telefon1}).ToList();
           
         }
 
         void Haberler()
         {
+            //İNTERNET SİTESİNDEN HABER ÇEKİLDİ
             XmlTextReader xmloku = new XmlTextReader("https://www.hurriyet.com.tr/rss/anasayfa");
             while (xmloku.Read())
             {
@@ -62,6 +65,7 @@ namespace Ticari_Otomasyon
             Ajanda();
             Son10Hareket();
             Fihrist();
+            //DÖVİZ KURLARI ÇEKİLDİ
             webBrowser1.Navigate("https://www.tcmb.gov.tr/kurlar/today.xml");
             Haberler();
         }

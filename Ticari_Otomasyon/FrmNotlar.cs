@@ -129,6 +129,7 @@ namespace Ticari_Otomasyon
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
+            //not detayını gösteren sayfaya gider
             FrmNotDetay fr = new FrmNotDetay();
             TBL_NOTLAR x = (TBL_NOTLAR)gridView1.GetRow(gridView1.FocusedRowHandle);
 

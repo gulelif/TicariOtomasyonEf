@@ -13,6 +13,7 @@ namespace Ticari_Otomasyon
 {
     public partial class FrmAyarlar : Form
     {
+        //ADMİN AYAR SAYFASI. BURADAN ADMİN AD VE PAROLASI GÜNCELLENEBİLİR
         public FrmAyarlar()
         {
             InitializeComponent();

@@ -19,7 +19,7 @@ namespace Ticari_Otomasyon
         DboTicariOtomasyonEntities1 context = new DboTicariOtomasyonEntities1();
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            
+            //Kullanıcı Girişi Kontrolü
            var login = context.TBL_ADMIN.Where(x => x.KullaniciAd.Equals(TxtKullaniciAdi.Text)&&x.Sifre.Equals(TxtParola.Text)).ToList();
             if(login.Count > 0 ) {
 

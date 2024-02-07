@@ -216,13 +216,9 @@ namespace Ticari_Otomasyon
             }
         }
 
-        private void BtnTemizle_Click_1(object sender, EventArgs e)
-        {
-            Temizle();
-        }
-
         private void TxtMiktar_EditValueChanged(object sender, EventArgs e)
         {
+            //GİRİLEN ADET SAYISINA GÖRE TOPLAM TUTARI HESAPLAR
             if (TxtFiyat.Text != "" && TxtMiktar.Text != "")
             {
 
@@ -235,7 +231,7 @@ namespace Ticari_Otomasyon
 
      
         private void BtnBul_Click(object sender, EventArgs e)
-        {
+        { //IDSİ GİRİLEN ÜRÜNÜ GETİRİR
             TBL_URUNLER urun = context.TBL_URUNLER.Find(int.Parse(TxtUrunID.Text));
             if(urun!=null)
             {
@@ -249,6 +245,7 @@ namespace Ticari_Otomasyon
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
+            //FATURA DETAYINI GÖRMEK İÇİN YENİ SAYFAYA YÖNLENDİRME
             FrmFaturaUrunler fr = new FrmFaturaUrunler();
             TBL_FATURABILGI x = (TBL_FATURABILGI)gridView1.GetRow(gridView1.FocusedRowHandle);
             if (x != null)

@@ -21,11 +21,13 @@ namespace Ticari_Otomasyon
         void MusteriListesi()
         {
             gridControl1.DataSource = context.TBL_MUSTERILER.ToList();
-        
+            gridView1.Columns[gridView1.Columns.Count - 1].Visible = false;
+
         }
         void FirmaListesi()
         {
             gridControl2.DataSource = context.TBL_FIRMALAR.ToList();
+            gridView2.Columns[gridView2.Columns.Count - 1].Visible = false;
         }
 
       

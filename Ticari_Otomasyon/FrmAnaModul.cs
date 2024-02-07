@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Ticari_Otomasyon
 {
+    //ANA MODÜL. MENÜ YÖNLENDİRMELERİ BURADAN YAPILDI.
     public partial class FrmAnaModul : Form
     {
         public FrmAnaModul()

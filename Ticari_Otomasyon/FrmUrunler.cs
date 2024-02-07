@@ -25,6 +25,8 @@ namespace Ticari_Otomasyon
         void UrunListele()
         {
             gridControl1.DataSource = context.TBL_URUNLER.ToList();
+            gridView1.Columns[gridView1.Columns.Count - 1].Visible = false;
+            gridView1.Columns[gridView1.Columns.Count - 2].Visible = false;
             temizle();
         }
         private void FrmUrunler_Load(object sender, EventArgs e)

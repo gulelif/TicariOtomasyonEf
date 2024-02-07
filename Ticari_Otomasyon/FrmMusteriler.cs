@@ -22,6 +22,7 @@ namespace Ticari_Otomasyon
         void MusteriListesi()
         {
             gridControl1.DataSource = context.TBL_MUSTERILER.ToList();
+            gridView1.Columns[gridView1.Columns.Count - 1].Visible = false;
             temizle();
         }
         void SehirListesi()

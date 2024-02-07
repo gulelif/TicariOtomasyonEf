@@ -22,7 +22,8 @@ namespace Ticari_Otomasyon
         DboTicariOtomasyonEntities1 context = new DboTicariOtomasyonEntities1();
         void BankaListesi()
         {
-            //USING STORED PROCEDURE
+            // STORED PROCEDURE İLE BANKA BİLGİLERİ ÇEKİLDİ
+            
             gridControl1.DataSource=  context.BankaBilgileri().ToList();
            temizle();
         }
