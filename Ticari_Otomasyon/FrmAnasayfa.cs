@@ -15,13 +15,14 @@ namespace Ticari_Otomasyon
         DboTicariOtomasyonEntities1 context = new DboTicariOtomasyonEntities1();
         void AzalanStoklar()
         {
-           // AZALAN STOKLAR.. 20 ADETTEN AZ KALAN ÜRÜN AZDAN ÇOK OLANA DOĞRU SIRALANDI
+           
+            // AZALAN STOKLAR.. 20 ADETTEN AZ KALAN ÜRÜN AZDAN ÇOK OLANA DOĞRU SIRALANDI
             gridControlStoklar.DataSource = context.TBL_URUNLER.GroupBy(x=>x.UrunAd)
                 .Select(grp => new
                 {
                     Ad=grp.Key,
                     kAdet=grp.Sum(x=>x.Adet)
-                }).Where(x=>x.kAdet<=20).OrderBy(x => x.kAdet).ToList();
+                }).Where(x=>x.kAdet<=200).OrderBy(x => x.kAdet).ToList();
 
         }
         void Ajanda()
@@ -32,7 +33,7 @@ namespace Ticari_Otomasyon
                Tarih= x.Tarih,
                 Saat= x.Saat,
                 Baslik = x.Baslik
-            }).Take(10).ToList();
+            }).Take(20).ToList();
         }
         void Son10Hareket()
         {

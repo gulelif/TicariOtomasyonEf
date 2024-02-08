@@ -26,7 +26,6 @@ namespace Ticari_Otomasyon
             // TODO: This line of code loads data into the 'DboTicariOtomasyonDataSet2.TBL_FIRMALAR' table. You can move, or remove it, as needed.
             this.TBL_FIRMALARTableAdapter.Fill(this.DboTicariOtomasyonDataSet2.TBL_FIRMALAR);
             // TODO: This line of code loads data into the 'DboTicariOtomasyonDataSet1.TBL_MUSTERILER' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'DboTicariOtomasyonDataSet1.TBL_MUSTERILER' table. You can move, or remove it, as needed.
             this.TBL_MUSTERILERTableAdapter.Fill(this.DboTicariOtomasyonDataSet1.TBL_MUSTERILER);
 
 
@@ -39,5 +38,7 @@ namespace Ticari_Otomasyon
           
 
         }
+
+      
     }
 }

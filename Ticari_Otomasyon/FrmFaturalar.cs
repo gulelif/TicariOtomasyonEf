@@ -145,6 +145,13 @@ namespace Ticari_Otomasyon
                 
                 TBL_URUNLER urun2 = new TBL_URUNLER
                 {
+                    UrunAd=urun.UrunAd,
+                    Marka=urun.Marka,
+                    Model=urun.Model,
+                    Yil=urun.Yil,
+                    AlisFiyat=urun.AlisFiyat,
+                    SatisFiyat=urun.SatisFiyat,
+                    Detay=urun.Detay,
                     Adet = (short?)kalan,
                     ID = Convert.ToInt32(TxtUrunID.Text)
                 };

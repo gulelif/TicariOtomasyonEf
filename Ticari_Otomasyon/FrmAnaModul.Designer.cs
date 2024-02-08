@@ -295,7 +295,7 @@
             this.IsMdiContainer = true;
             this.Name = "FrmAnaModul";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Ticari Otomasyon";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmAnaModul_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

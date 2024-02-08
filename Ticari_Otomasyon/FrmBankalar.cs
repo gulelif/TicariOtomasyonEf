@@ -180,6 +180,6 @@ namespace Ticari_Otomasyon
             }
         }
 
-       
+     
     }
 }

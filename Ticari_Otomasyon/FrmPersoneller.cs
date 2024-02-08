@@ -157,6 +157,15 @@ namespace Ticari_Otomasyon
             temizle();
         }
 
-       
+        private void Cmbil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CmbIlce.Properties.Items.Clear();
+            CmbIlce.SelectedIndex = 0;
+            var ilce = context.TBL_ILCELER.Where(x => x.Sehir.Equals(Cmbil.SelectedIndex + 1)).ToList();
+            for (int i = 0; i < ilce.Count; i++)
+            {
+                CmbIlce.Properties.Items.Add(ilce[i].Ilce);
+            }
+        }
     }
 }

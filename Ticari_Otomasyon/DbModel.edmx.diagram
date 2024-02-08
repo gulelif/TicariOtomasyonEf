@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_FIRMALAR" Width="1.5" PointX="3.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_URUNLER" Width="1.5" PointX="5.375" PointY="8.75" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_MUSTERILER" Width="1.5" PointX="5.125" PointY="1" />
-        <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_PERSONELLER" Width="1.5" PointX="7.375" PointY="8.75" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_KODLAR" Width="1.5" PointX="9.375" PointY="0.75" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_GIDERLER" Width="1.5" PointX="7.125" PointY="1" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_BANKALAR" Width="1.5" PointX="0.5" PointY="3" />
@@ -19,15 +18,17 @@
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_FATURADETAY" Width="1.5" PointX="8.25" PointY="4.625" />
         <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_FATURADETAY_TBL_FATURABILGI" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_NOTLAR" Width="1.5" PointX="0.5" PointY="7.125" />
-        <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_FIRMAHAREKETLER" Width="1.5" PointX="9.625" PointY="10.75" />
+        <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_FIRMAHAREKETLER" Width="1.5" PointX="11.125" PointY="10.625" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_MUSTERIHAREKETLER" Width="1.5" PointX="10.625" PointY="5.75" />
-        <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER" />
         <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_URUNLER" />
         <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_MUSTERILER" />
-        <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER" />
         <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_URUNLER" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_STOKLAR" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_ADMIN" Width="1.5" PointX="10.375" PointY="3.375" />
+        <EntityTypeShape EntityType="DboTicariOtomasyonModel.TBL_PERSONELLER" Width="1.5" PointX="8" PointY="8" />
+        <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_FIRMAHAREKETLER_TBL_PERSONELLER" />
+        <AssociationConnector Association="DboTicariOtomasyonModel.FK_TBL_MUSTERIHAREKETLER_TBL_PERSONELLER" />
+        <EntityTypeShape EntityType="DboTicariOtomasyonModel.sysdiagram" Width="1.5" PointX="12.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

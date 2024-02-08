@@ -499,6 +499,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_ADMIN.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>

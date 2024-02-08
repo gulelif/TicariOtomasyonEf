@@ -209,6 +209,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.Cmbil.Size = new System.Drawing.Size(140, 24);
             this.Cmbil.TabIndex = 2;
+            this.Cmbil.SelectedIndexChanged += new System.EventHandler(this.Cmbil_SelectedIndexChanged);
             // 
             // TxtIBAN
             // 

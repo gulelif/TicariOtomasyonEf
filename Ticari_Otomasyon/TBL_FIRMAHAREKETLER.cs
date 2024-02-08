@@ -17,7 +17,7 @@ namespace Ticari_Otomasyon
         public int HareketID { get; set; }
         public Nullable<int> UrunID { get; set; }
         public Nullable<byte> Adet { get; set; }
-        public Nullable<byte> Personel { get; set; }
+        public Nullable<int> Personel { get; set; }
         public Nullable<short> Firma { get; set; }
         public Nullable<decimal> Fiyat { get; set; }
         public Nullable<decimal> Toplam { get; set; }
@@ -25,7 +25,7 @@ namespace Ticari_Otomasyon
         public string Tarih { get; set; }
         public string Notlar { get; set; }
     
-        public virtual TBL_PERSONELLER TBL_PERSONELLER { get; set; }
         public virtual TBL_URUNLER TBL_URUNLER { get; set; }
+        public virtual TBL_PERSONELLER TBL_PERSONELLER { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace Ticari_Otomasyon
             this.TBL_MUSTERIHAREKETLER = new HashSet<TBL_MUSTERIHAREKETLER>();
         }
     
-        public byte ID { get; set; }
+        public int ID { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public string Telefon { get; set; }

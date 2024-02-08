@@ -12,15 +12,12 @@ namespace Ticari_Otomasyon
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_FATURADETAY
+    public partial class sysdiagram
     {
-        public int FaturaUrunID { get; set; }
-        public string UrunAd { get; set; }
-        public Nullable<short> Miktar { get; set; }
-        public Nullable<decimal> Fiyat { get; set; }
-        public Nullable<decimal> Tutar { get; set; }
-        public Nullable<int> FaturaID { get; set; }
-    
-        public virtual TBL_FATURABILGI TBL_FATURABILGI { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

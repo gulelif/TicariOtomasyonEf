@@ -123,6 +123,24 @@
   <metadata name="DboTicariOtomasyonDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="TBL_FIRMALARBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>891, 17</value>
+  </metadata>
+  <metadata name="DboTicariOtomasyonDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>675, 17</value>
+  </metadata>
+  <metadata name="TBL_GIDERLERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>439, 56</value>
+  </metadata>
+  <metadata name="DboTicariOtomasyonDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>223, 56</value>
+  </metadata>
+  <metadata name="TBL_PERSONELLERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 95</value>
+  </metadata>
+  <metadata name="DboTicariOtomasyonDataSet4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>850, 56</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="xtraTabPage2.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -191,40 +209,6 @@
         XscjAcFCU8DPAgLZ3ej+u9ADLHyHzUeM+gfICbHvXwrAzAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="xtraTabPage4.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        bPoPal6KQ8NhBH0AAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="xtraTabPage5.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -291,44 +275,14 @@
         fMHgOxxuLPwPZ3pLcd5tseIAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="TBL_GIDERLERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>439, 56</value>
-  </metadata>
-  <metadata name="DboTicariOtomasyonDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>223, 56</value>
-  </metadata>
-  <metadata name="TBL_PERSONELLERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
-  <metadata name="DboTicariOtomasyonDataSet4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>850, 56</value>
-  </metadata>
-  <metadata name="TBL_FIRMALARBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>891, 17</value>
-  </metadata>
-  <metadata name="DboTicariOtomasyonDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>675, 17</value>
-  </metadata>
-  <metadata name="DboTicariOtomasyonDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="TBL_MUSTERILERTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>457, 17</value>
-  </metadata>
-  <metadata name="DboTicariOtomasyonDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>675, 17</value>
   </metadata>
   <metadata name="TBL_FIRMALARTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
-  <metadata name="DboTicariOtomasyonDataSet3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>223, 56</value>
-  </metadata>
   <metadata name="TBL_GIDERLERTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>647, 56</value>
-  </metadata>
-  <metadata name="DboTicariOtomasyonDataSet4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>850, 56</value>
   </metadata>
   <metadata name="TBL_PERSONELLERTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>249, 95</value>
